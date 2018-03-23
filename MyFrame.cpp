@@ -22,7 +22,8 @@ enum	// énumération. Elle gère la numérotation automatiquement
 	ID_Desa,
 	ID_Thresh,
 	ID_Poste,
-	ID_Annuler
+	ID_Annuler,
+	ID_Nb
 
 };
 
@@ -80,6 +81,9 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
     menuProcess->Append(ID_Poste, wxT("Posterize...\tCtrl-P"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Poste);
+
+	menuProcess->Append(ID_Nb, wxT("Number"));
+	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Nb);
 
     menuProcess->Append(ID_Annuler, wxT("Annuler...\tCtrl-Z"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Annuler);
@@ -167,6 +171,9 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
             break;
         case ID_Poste :
                 m_panel->Posterize();
+            break;
+        case ID_Nb :
+                m_panel->Number();
             break;
 
     }

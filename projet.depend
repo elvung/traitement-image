@@ -1693,3 +1693,53 @@
 1521100450 source:/users/info/etu-s4/salkims/Cours/S4/M4105/projet/MyThresholdDialog.cpp
 	"MyThresholdDialog.hpp"
 
+1521472098 source:/users/info/etu-s4/techera/Documents/Git/projet/main.cpp
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+	"MyFrame.h"
+
+1521793009 /users/info/etu-s4/techera/Documents/Git/projet/MyImage.h
+	<wx/wx.h>
+	<wx/filedlg.h>
+	<wx/wxprec.h>
+
+1521472347 /users/info/etu-s4/techera/Documents/Git/projet/MyThresholdDialog.hpp
+	"wx/dialog.h"
+	"wx/button.h"
+	"wx/slider.h"
+
+1521472135 /users/info/etu-s4/techera/Documents/Git/projet/MyFrame.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyPanel.h"
+
+1521793059 /users/info/etu-s4/techera/Documents/Git/projet/MyPanel.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+	<stack>
+
+1521792927 source:/users/info/etu-s4/techera/Documents/Git/projet/MyFrame.cpp
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+	"MyFrame.h"
+
+1521793042 source:/users/info/etu-s4/techera/Documents/Git/projet/MyImage.cpp
+	"MyImage.h"
+	<set>
+
+1521100450 source:/users/info/etu-s4/techera/Documents/Git/projet/MyThresholdDialog.cpp
+	"MyThresholdDialog.hpp"
+
+1521792909 source:/users/info/etu-s4/techera/Documents/Git/projet/MyPanel.cpp
+	"MyPanel.h"
+

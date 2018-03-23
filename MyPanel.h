@@ -22,6 +22,7 @@ public:
     void Threshold(int seuil);
     void Posterize();
     void Annuler();
+    void Number();
 
 
 

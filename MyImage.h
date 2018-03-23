@@ -20,6 +20,7 @@ class MyImage : public wxImage{
         unsigned char* rotate90();
         void Posterize();
         void Annuler();
+        void NbCouleur();
 
 
         void permut(int i , int x);

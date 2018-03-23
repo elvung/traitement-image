@@ -1,4 +1,5 @@
 #include "MyImage.h"
+#include <set>
 
 MyImage::MyImage(const wxString& fileName)
 : wxImage(fileName)
@@ -186,4 +187,20 @@ void MyImage::permut(int i , int x){
     sauv = i;
     i = x ;
     x = sauv;
+}
+
+void MyImage::NbCouleur(){
+    int total = 0;
+    wxString myString;
+    unsigned char* data = this->GetData();
+    int taille = this->GetHeight()*this->GetWidth()*3;
+    std::set<int> v;
+
+    for (int i = 0; i< taille; i = i+3){
+            v.insert(data[i] + (data[i+1]<<8) + (data[i+2]<<16));
+    }
+
+    total = v.size();
+    myString<<total;
+    wxLogMessage(myString);
 }
