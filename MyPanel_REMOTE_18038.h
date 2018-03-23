@@ -5,7 +5,6 @@
 #endif
 #include "MyImage.h"
 #include "MyThresholdDialog.hpp"
-#include <stack>
 
 
 class MyPanel: public wxPanel{
@@ -22,7 +21,6 @@ public:
     void Threshold(int seuil);
     void Posterize();
     void Annuler();
-    void Number();
     void AddToPileRetour();
 
 

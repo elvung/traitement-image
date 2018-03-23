@@ -23,8 +23,6 @@ public:
     void Posterize();
     void Annuler();
     void Number();
-    void AddToPileRetour();
-
 
 
 
@@ -34,6 +32,7 @@ public:
     ~MyPanel() ;
 
 private:
+    std::stack<MyImage> pileRetour ;
 
     wxBitmap m_bitmap ;	// used to display the image
     MyImage *m_image ;	// used to load and process the image		// used to load and process the image

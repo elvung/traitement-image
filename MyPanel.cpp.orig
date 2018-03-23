@@ -28,28 +28,50 @@ void MyPanel::OnPaint(wxPaintEvent &WXUNUSED(event)){
 }
 
 void MyPanel::MiroirImage(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
 
 m_image->MirrorHM();
     Refresh();
 }
 
 void MyPanel::BlurImage(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
 
 *m_image = m_image->Blur(20);
 Refresh();
 }
 
 void MyPanel::RotationImage(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
+
 *m_image = m_image->Rotate90();
 Refresh();
 }
 
 void MyPanel::Negative(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
+
 m_image->Negative();
 Refresh();
 }
 
 void MyPanel::Desaturate(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
 
 m_image->Desaturate();
 Refresh();
@@ -63,6 +85,10 @@ Refresh();
 }
 
 void MyPanel::Posterize(){
+<<<<<<< HEAD
+//pileRetour.push(m_image);
+=======
+>>>>>>> origin/Sevket
 m_image->Posterize();
 Refresh();
 }
@@ -72,4 +98,8 @@ m_image->Annuler();
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
+}
+
+void MyPanel::Number(){
+    m_image->NbCouleur();
 }

@@ -21,8 +21,12 @@ class MyImage : public wxImage{
         unsigned char* rotate90();
         void Posterize();
         void Annuler();
+<<<<<<< HEAD
+        void NbCouleur();
+=======
         void AddToPileRetour();
-	void NbCouleur();
+>>>>>>> origin/Sevket
+
 
         void permut(int i , int x);
 

@@ -182,6 +182,16 @@ void MyImage::Posterize(){
 
 }
 
+void MyImage::Annuler(){
+        unsigned char* data = this->GetData();
+        data = pileRetour.top();
+        pileRetour.pop();
+}
+void MyImage::AddToPileRetour(){
+        unsigned char* data = this->GetData();
+        pileRetour.push(data);
+}
+
 void MyImage::permut(int i , int x){
     int sauv ;
     sauv = i;
