@@ -5,7 +5,6 @@
 #endif
 #include "MyImage.h"
 #include "MyThresholdDialog.hpp"
-#include <stack>
 
 
 class MyPanel: public wxPanel{
@@ -22,6 +21,8 @@ public:
     void Threshold(int seuil);
     void Posterize();
     void Annuler();
+    void AddToPileRetour();
+
 
 
 
@@ -31,7 +32,6 @@ public:
     ~MyPanel() ;
 
 private:
-    std::stack<MyImage> pileRetour ;
 
     wxBitmap m_bitmap ;	// used to display the image
     MyImage *m_image ;	// used to load and process the image		// used to load and process the image

@@ -4,6 +4,7 @@
 #include <wx/wx.h>
 #include <wx/filedlg.h>
 #include <wx/wxprec.h>
+#include <stack>
 
 
 
@@ -20,6 +21,7 @@ class MyImage : public wxImage{
         unsigned char* rotate90();
         void Posterize();
         void Annuler();
+        void AddToPileRetour();
 
 
         void permut(int i , int x);
@@ -27,5 +29,6 @@ class MyImage : public wxImage{
 
 
     private :
+        std::stack<unsigned char*> pileRetour;
 };
 #endif // MYIMAGE_HPP_INCLUDED

@@ -143,6 +143,7 @@ void MyFrame::OnMouse(wxMouseEvent& event){
     SetStatusText(coord);
 }
 void MyFrame::OnProcessImage(wxCommandEvent& event){
+    m_panel->AddToPileRetour();
     switch(event.GetId()){
         case ID_Miroir :
                 m_panel->MiroirImage();

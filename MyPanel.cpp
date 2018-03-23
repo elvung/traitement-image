@@ -28,35 +28,30 @@ void MyPanel::OnPaint(wxPaintEvent &WXUNUSED(event)){
 }
 
 void MyPanel::MiroirImage(){
-pileRetour.push(m_image);
 
 m_image->MirrorHM();
     Refresh();
 }
 
 void MyPanel::BlurImage(){
-pileRetour.push(m_image);
 
 *m_image = m_image->Blur(20);
 Refresh();
 }
 
 void MyPanel::RotationImage(){
-pileRetour.push(m_image);
 
 *m_image = m_image->Rotate90();
 Refresh();
 }
 
 void MyPanel::Negative(){
-pileRetour.push(m_image);
 
 m_image->Negative();
 Refresh();
 }
 
 void MyPanel::Desaturate(){
-pileRetour.push(m_image);
 
 m_image->Desaturate();
 Refresh();
@@ -70,12 +65,13 @@ Refresh();
 }
 
 void MyPanel::Posterize(){
-pileRetour.push(m_image);
 m_image->Posterize();
 Refresh();
 }
 
 void MyPanel::Annuler(){
-*m_image = pileRetour.top();
-pileRetour.pop();
+m_image->Annuler();
+}
+void MyPanel::AddToPileRetour(){
+m_image->AddToPileRetour();
 }

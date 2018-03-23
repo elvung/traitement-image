@@ -1693,3 +1693,52 @@
 1521100450 source:/users/info/etu-s4/salkims/Cours/S4/M4105/projet/MyThresholdDialog.cpp
 	"MyThresholdDialog.hpp"
 
+1521792329 source:/users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/main.cpp
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+	"MyFrame.h"
+
+1521794218 /users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyImage.h
+	<wx/wx.h>
+	<wx/filedlg.h>
+	<wx/wxprec.h>
+	<stack>
+
+1521792329 /users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyThresholdDialog.hpp
+	"wx/dialog.h"
+	"wx/button.h"
+	"wx/slider.h"
+
+1521792329 /users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyFrame.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyPanel.h"
+
+1521794239 /users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyPanel.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+
+1521794108 source:/users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyFrame.cpp
+	<wx/wxprec.h>
+	<wx/wx.h>
+	<wx/filedlg.h>
+	"MyImage.h"
+	"MyThresholdDialog.hpp"
+	"MyFrame.h"
+
+1521793954 source:/users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyImage.cpp
+	"MyImage.h"
+
+1521793639 source:/users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyPanel.cpp
+	"MyPanel.h"
+
+1521792329 source:/users/info/etu-s4/salkims/Cours/S4/M4105/git/traitement-image/MyThresholdDialog.cpp
+	"MyThresholdDialog.hpp"
+
