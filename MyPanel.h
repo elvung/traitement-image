@@ -6,6 +6,7 @@
 #include "MyImage.h"
 #include "MyThresholdDialog.hpp"
 #include <stack>
+#include "MyHistogram.hpp"
 
 
 class MyPanel: public wxPanel{

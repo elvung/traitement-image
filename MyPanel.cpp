@@ -13,6 +13,7 @@ MyPanel::~MyPanel(){
 
 void MyPanel::OpenImage(wxString filename){
    m_image = new MyImage(filename);
+   MyHistogram *hist = new MyHistogram(m_image);
     this->GetParent()->SetClientSize(m_image->GetWidth(),m_image->GetHeight());
     Refresh();
 }
@@ -68,8 +69,8 @@ Refresh();
 }
 
 void MyPanel::Annuler(){
-*m_image = m_image->Annuler();
-Refresh();
+/**m_image = m_image->Annuler();
+Refresh();*/
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
