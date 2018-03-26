@@ -169,6 +169,8 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
         case ID_Poste :
                 m_panel->Posterize();
             break;
+        case ID_Annuler :
+                m_panel->Annuler();
 
     }
 }
