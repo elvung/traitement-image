@@ -190,7 +190,8 @@ unsigned char* MyImage::Annuler(){
 
         resultat = pileRetour.top();
         pileRetour.pop();
-        return resultat;
+        data = resultat;
+        return data;
 
 }
 void MyImage::AddToPileRetour(){
