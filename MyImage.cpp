@@ -182,10 +182,16 @@ void MyImage::Posterize(){
 
 }
 
-void MyImage::Annuler(){
-        unsigned char* data = this->GetData();
-        data = pileRetour.top();
+unsigned char* MyImage::Annuler(){
+    unsigned char* data = this->GetData();
+    int largeur = this->GetWidth();
+    int hauteur = this->GetHeight();
+    unsigned char* resultat = (unsigned char*) malloc (hauteur*largeur*3);
+
+        resultat = pileRetour.top();
         pileRetour.pop();
+        return resultat;
+
 }
 void MyImage::AddToPileRetour(){
         unsigned char* data = this->GetData();

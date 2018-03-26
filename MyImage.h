@@ -20,7 +20,7 @@ class MyImage : public wxImage{
         void MirrorHM();
         unsigned char* rotate90();
         void Posterize();
-        void Annuler();
+        unsigned char* Annuler();
         void AddToPileRetour();
 	void NbCouleur();
 

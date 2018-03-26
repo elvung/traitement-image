@@ -176,6 +176,8 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
         case ID_Nb :
                 m_panel->Number();
             break;
+        case ID_Annuler :
+                m_panel->Annuler();
 
     }
 }

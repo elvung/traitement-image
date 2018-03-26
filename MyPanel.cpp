@@ -68,7 +68,8 @@ Refresh();
 }
 
 void MyPanel::Annuler(){
-m_image->Annuler();
+*m_image = m_image->Annuler();
+Refresh();
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
