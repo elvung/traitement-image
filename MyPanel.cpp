@@ -73,3 +73,7 @@ m_image->Annuler();
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
 }
+
+void MyPanel::Number(){
+m_image->NbCouleur();
+}
