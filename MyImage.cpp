@@ -1,5 +1,7 @@
 #include "MyImage.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 MyImage::MyImage(const wxString& fileName)
 : wxImage(fileName)
 {
@@ -181,26 +183,47 @@ void MyImage::Posterize(){
 
 }
 
-unsigned char* MyImage::Annuler(){
-    unsigned char* data = this->GetData();
-    int largeur = this->GetWidth();
-    int hauteur = this->GetHeight();
-    unsigned char* resultat = (unsigned char*) malloc (hauteur*largeur*3);
+void MyImage::Annuler(){
 
-        resultat = pileRetour.top();
-        pileRetour.pop();
-        data = resultat;
-        return data;
+    MyImage* my = new MyImage(this->GetWidth(),this->GetHeight());
+    *my = pileRetour.top();
+    pileRetour.pop();
 
+    std::cout<<"image dans la pile"<<std::endl;
+    std::cout<<my->GetWidth()<<std::endl;
+    std::cout<<my->GetHeight()<<std::endl;
+    std::cout<<my->GetHeight()<<std::endl;
+
+    unsigned char* dataDeLimageActuelle = this->GetData();
+    unsigned char* dataDuStack = my->GetData();
+
+    std::cout<<"taille de la pile"<<std::endl;
+    std::cout<<pileRetour.size()<<std::endl;
+
+    for (int i ; i< this->GetWidth()*this->GetHeight()*3; i++ ){
+    /*if(i<100){
+            std::cout<<(int)(dataDeLimageActuelle[i]) <<" = "<< (int)(dataDuStack[i])<<std::endl;
+            std::cout<<pileTest.top()<<std::endl;
+    }*/
+            std::cout<<pileTest.top()<<std::endl;
+            pileTest.pop();
+
+        dataDeLimageActuelle[i] = dataDuStack[i];
+
+
+
+
+    }
 }
+
 void MyImage::AddToPileRetour(){
-        unsigned char* data = this->GetData();
-        pileRetour.push(data);
+    pileRetour.push(*this);
+    std::cout<<pileRetour.size()<<std::endl;
+
+    pileTest.push(valeur);
+    std::cout<<pileTest.size()<<std::endl;
+    valeur++;
+
 }
 
-void MyImage::permut(int i , int x){
-    int sauv ;
-    sauv = i;
-    i = x ;
-    x = sauv;
-}
+

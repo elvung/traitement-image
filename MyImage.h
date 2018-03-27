@@ -20,15 +20,14 @@ class MyImage : public wxImage{
         void MirrorHM();
         unsigned char* rotate90();
         void Posterize();
-        unsigned char* Annuler();
+        void Annuler();
         void AddToPileRetour();
 
-
-        void permut(int i , int x);
-
-
-
     private :
-        std::stack<unsigned char*> pileRetour;
+        std::stack<MyImage> pileRetour;
+        std::stack<int> pileTest;
+
+
+        int valeur = 0;
 };
 #endif // MYIMAGE_HPP_INCLUDED
