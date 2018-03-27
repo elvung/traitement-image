@@ -13,7 +13,6 @@ MyPanel::~MyPanel(){
 
 void MyPanel::OpenImage(wxString filename){
    m_image = new MyImage(filename);
-   MyHistogram *hist = new MyHistogram(m_image);
     this->GetParent()->SetClientSize(m_image->GetWidth(),m_image->GetHeight());
     Refresh();
 }
@@ -71,6 +70,12 @@ Refresh();
 void MyPanel::Annuler(){
 /**m_image = m_image->Annuler();
 Refresh();*/
+MyHistogram *hist = new MyHistogram(m_image);
+   int max = 0;
+   int min = 0;
+   hist->GetBorderValues(&min, &max);
+m_image->EnhanceContrast(min,max);
+Refresh();
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();

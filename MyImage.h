@@ -22,13 +22,15 @@ class MyImage : public wxImage{
         void Posterize();
         unsigned char* Annuler();
         void AddToPileRetour();
-	void NbCouleur();
-
+        void NbCouleur();
+        void EnhanceContrast(int minValue, int maxValue);
         void permut(int i , int x);
+
 
 
 
     private :
         std::stack<unsigned char*> pileRetour;
+
 };
 #endif // MYIMAGE_HPP_INCLUDED

@@ -1,5 +1,6 @@
 #include "MyImage.h"
 #include <set>
+#include "MyHistogram.hpp"
 
 MyImage::MyImage(const wxString& fileName)
 : wxImage(fileName)
@@ -34,7 +35,8 @@ unsigned char* data = this->GetData();
 void MyImage::Desaturate(){
 unsigned char* data = this->GetData();
     for(int i = 0 ;  i<(this->GetWidth()*this->GetHeight())*3;   i=i+3 ){
-        int L = 0.2126 *data[i] + 0.7152 *data[i+1] + 0.0722 *data[i+2];
+        //int L = 0.2126 *data[i] + 0.7152 *data[i+1] + 0.0722 *data[i+2];
+        int L = 0.3 *data[i] + 0.59 *data[i+1] + 0.11 *data[i+2];
         data[i]=L;
         data[i+1] = L ;
         data[i+2] = L;
@@ -220,4 +222,17 @@ void MyImage::NbCouleur(){
     total = v.size();
     myString<<total;
     wxLogMessage(myString);
+}
+
+void MyImage::EnhanceContrast(int minValue, int maxValue){
+
+    int d = (255 * minValue)/(minValue-maxValue);
+    int f = 255/(maxValue-minValue);
+
+    unsigned char* data = this->GetData();
+
+    int taille = this->GetHeight()*this->GetWidth()*3;
+    for (int i = 0; i< taille; i++){
+           data[i] = (f * data[i]) + d;
+    }
 }
