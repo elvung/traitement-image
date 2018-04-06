@@ -19,21 +19,23 @@ m_image(_image){
 
 void MyHistogram::GetBorderValues(int *minValue, int *maxValue){
 
+
+
     int min = taille;
     int max = 0;
-    /*for(int i =0; i<grey.size(); i++){
+    for(int i =0; i<grey.size(); i++){
         if (grey[i] > max){
             max = grey[i];
             *maxValue = i;
-        }else if ((grey[i] < min) && (grey[i] != 0)){
+        }if ((grey[i] < min) && (grey[i] > 0)){
             min = grey[i];
             *minValue = i;
+
         }
     }
     wxString myString;
-    myString << *maxValue;
-    wxLogMessage(myString);*/
-
+    myString << *minValue;
+    wxLogMessage(myString);
 
 }
 
