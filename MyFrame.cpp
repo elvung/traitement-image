@@ -22,7 +22,8 @@ enum	// énumération. Elle gère la numérotation automatiquement
 	ID_Desa,
 	ID_Thresh,
 	ID_Poste,
-	ID_Annuler,
+	ID_Luminosite
+	//ID_Annuler
 	ID_Nb
 
 };
@@ -61,7 +62,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	menuProcess->Append(ID_Miroir, wxT("Miroir..\tCtrl-M"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Miroir);
 
-    menuProcess->Append(ID_Miroirbis, wxT("Miroir reverse...\tCtrl-L"));
+    menuProcess->Append(ID_Miroirbis, wxT("Miroir reverse...\tCtrl-%"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Miroirbis);
 
 	menuProcess->Append(ID_Blur, wxT("Blur...\tCtrl-B"));
@@ -84,9 +85,13 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
 	menuProcess->Append(ID_Nb, wxT("Améliorer le contraste"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Nb);
+  
+	/*  menuProcess->Append(ID_Annuler, wxT("Annuler...\tCtrl-Z"));
+	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Annuler);*/
 
-    menuProcess->Append(ID_Annuler, wxT("Annuler...\tCtrl-Z"));
-	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Annuler);
+    menuProcess->Append(ID_Luminosite, wxT("Luminosité...\tCtrl-L"));
+	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Luminosite);
+
 
 	wxMenuBar *menuBar = new wxMenuBar ;
 	menuBar->Append( menuFile, wxT("File" )) ;
@@ -116,7 +121,7 @@ void MyFrame::OnOpenImage(wxCommandEvent& event){
 }
 
 void MyFrame::OnAbout(wxCommandEvent& event){
-    wxLogMessage(wxT("Auteur: Antoine Jayet-Lafarge 2017/2018"));
+    wxLogMessage(wxT("Auteur: Salkim Sevket / Techer Antoine 2017/2018"));
 }
 
 void MyFrame::OnEnCours(wxCommandEvent& event){
@@ -153,7 +158,7 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
                 m_panel->MiroirImage();
             break;
         case ID_Miroirbis :
-                //m_panel->MiroirImage(false);
+//                m_panel->MiroirImage(false);
             break;
         case ID_Blur :
                 m_panel->AddToPileRetour();
@@ -179,12 +184,15 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
                 m_panel->AddToPileRetour();
                 m_panel->Posterize();
             break;
-        case ID_Nb :
+      /*  case ID_Annuler :
+                m_panel->Annuler();
+		break;*/
+	case ID_Nb :
                 m_panel->Contrast();
             break;
-        case ID_Annuler :
-
-                m_panel->Annuler();
+        case ID_Luminosite :
+                m_panel->Lumino();
+            break;
 
     }
 }

@@ -146,18 +146,21 @@ void MyImage::MirrorHM(){
     }
 }
 
-unsigned char* MyImage::rotate90(){
+MyImage MyImage::rotate90(){
     unsigned char* data = this->GetData();
     int largeur = this->GetWidth();
     int hauteur = this->GetHeight();
     unsigned char* resultat = (unsigned char*) malloc (hauteur*largeur*3);
+    int i,x,j;
 
-    for(int colonne = 0 ; colonne < largeur;colonne++){
+    for(int ligne = 0 ; ligne < hauteur;ligne++){
 
-        for(int ligne=0;ligne<hauteur;ligne++){
+        for(int colonne=0;colonne<largeur;colonne++){
 
-            int i = (colonne*ligne)*3;
-            int j = ((largeur-colonne)*ligne)*3;
+            i = (ligne*largeur+colonne)*3;
+            x = hauteur-1-ligne;
+            j = (colonne*hauteur+x)*3;
+
 
             resultat[j] = data[i];
             resultat[j+1] = data[i+1];
@@ -167,7 +170,9 @@ unsigned char* MyImage::rotate90(){
 
         }
     }
-    return resultat;
+    MyImage res = MyImage(hauteur,largeur);
+    res.SetData(resultat);
+    return res;
 
 }
 
@@ -186,44 +191,40 @@ void MyImage::Posterize(){
 
 }
 
-unsigned char* MyImage::Annuler(){
-    unsigned char* data = this->GetData();
-    int largeur = this->GetWidth();
-    int hauteur = this->GetHeight();
-    unsigned char* resultat = (unsigned char*) malloc (hauteur*largeur*3);
+void MyImage::Annuler(){
 
-        resultat = pileRetour.top();
-        pileRetour.pop();
-        data = resultat;
-        return data;
+    MyImage* my = new MyImage(this->GetWidth(),this->GetHeight());
+    *my = pileRetour.top();
+     pileRetour.pop();
 
-}
-void MyImage::AddToPileRetour(){
-        unsigned char* data = this->GetData();
-        pileRetour.push(data);
-}
 
-void MyImage::permut(int i , int x){
-    int sauv ;
-    sauv = i;
-    i = x ;
-    x = sauv;
-}
+    unsigned char* dataDeLimageActuelle = this->GetData();
+    unsigned char* dataDuStack = my->GetData();
 
-void MyImage::NbCouleur(){
-    int total = 0;
-    wxString myString;
-    unsigned char* data = this->GetData();
-    int taille = this->GetHeight()*this->GetWidth()*3;
-    std::set<int> v;
 
-    for (int i = 0; i< taille; i = i+3){
-            v.insert(data[i] + (data[i+1]<<8) + (data[i+2]<<16));
+
+    for (int i ; i< this->GetWidth()*this->GetHeight()*3; i++ ){
+
+        dataDeLimageActuelle[i] = 0;
+        dataDeLimageActuelle[i] = dataDuStack[i];
     }
+}
 
-    total = v.size();
-    myString<<total;
-    wxLogMessage(myString);
+void MyImage::AddToPileRetour(){
+    pileRetour.push(*this);
+}
+
+void MyImage::Lumino(int quantite){
+    unsigned char* data = this->GetData();
+    for(int i = 0 ;  i<(this->GetWidth()*this->GetHeight())*3; i++ ){
+         if(data[i]+ quantite >255){
+            data[i] = 255;
+         }else if(data[i] + quantite<0){
+            data[i] = 0 ;
+         }else{
+         data[i] += quantite;
+         }
+    }
 }
 
 void MyImage::EnhanceContrast(int minValue, int maxValue){

@@ -34,17 +34,19 @@ m_image->MirrorHM();
 }
 
 void MyPanel::BlurImage(){
-
-*m_image = m_image->Blur(20);
+*m_image = m_image->Blur(10);
 Refresh();
 }
 
 void MyPanel::RotationImage(){
-*m_image = m_image->Rotate90();
+
+*m_image = m_image->rotate90();
+SetSize(m_image->GetWidth(),m_image->GetHeight());
 Refresh();
 }
 
 void MyPanel::Negative(){
+
 m_image->Negative();
 Refresh();
 }
@@ -68,8 +70,8 @@ Refresh();
 }
 
 void MyPanel::Annuler(){
-/**m_image = m_image->Annuler();
-Refresh();*/
+m_image->Annuler();
+Refresh();
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
@@ -82,4 +84,10 @@ void MyPanel::Contrast(){
        hist->GetBorderValues(&min, &max);
     m_image->EnhanceContrast(min,max);
     Refresh();
+}
+void MyPanel::Lumino(){
+MyLuminoDialog *dlg = new MyLuminoDialog(this, -1, wxT("Luminosité"), wxDefaultPosition, wxSize(250,140)) ;
+dlg->ShowModal() ;
+m_image->Lumino(dlg->m_lumino->GetValue());
+Refresh();
 }

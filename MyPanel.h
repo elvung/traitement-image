@@ -7,6 +7,7 @@
 #include "MyThresholdDialog.hpp"
 #include <stack>
 #include "MyHistogram.hpp"
+#include "MyLuminoDialog.h"
 
 
 class MyPanel: public wxPanel{
@@ -25,6 +26,7 @@ public:
     void Annuler();
     void Contrast();
     void AddToPileRetour();
+    void Lumino();
 
 
 
