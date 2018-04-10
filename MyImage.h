@@ -26,11 +26,12 @@ class MyImage : public wxImage{
         void EnhanceContrast(int minValue, int maxValue);
         void permut(int i , int x);
 
-
-
-
     private :
-        std::stack<unsigned char*> pileRetour;
+        std::stack<MyImage> pileRetour;
+        std::stack<int> pileTest;
+ 	std::stack<unsigned char*> pileRetour;
 
+
+        int valeur = 0;
 };
 #endif // MYIMAGE_HPP_INCLUDED

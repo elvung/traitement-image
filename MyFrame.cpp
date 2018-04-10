@@ -147,36 +147,43 @@ void MyFrame::OnMouse(wxMouseEvent& event){
     SetStatusText(coord);
 }
 void MyFrame::OnProcessImage(wxCommandEvent& event){
-    m_panel->AddToPileRetour();
     switch(event.GetId()){
         case ID_Miroir :
+                m_panel->AddToPileRetour();
                 m_panel->MiroirImage();
             break;
         case ID_Miroirbis :
                 //m_panel->MiroirImage(false);
             break;
         case ID_Blur :
+                m_panel->AddToPileRetour();
                 m_panel->BlurImage();
             break;
         case ID_Rotate :
+                m_panel->AddToPileRetour();
                 m_panel->RotationImage();
             break;
         case ID_Nega :
+                m_panel->AddToPileRetour();
                 m_panel->Negative();
             break;
         case ID_Desa :
+                m_panel->AddToPileRetour();
                 m_panel->Desaturate();
             break;
         case ID_Thresh :
+                m_panel->AddToPileRetour();
                 m_panel->Threshold(128);
             break;
         case ID_Poste :
+                m_panel->AddToPileRetour();
                 m_panel->Posterize();
             break;
         case ID_Nb :
                 m_panel->Number();
             break;
         case ID_Annuler :
+
                 m_panel->Annuler();
 
     }

@@ -68,19 +68,9 @@ Refresh();
 }
 
 void MyPanel::Annuler(){
-/**m_image = m_image->Annuler();
-Refresh();*/
-MyHistogram *hist = new MyHistogram(m_image);
-   int max = 0;
-   int min = 0;
-   hist->GetBorderValues(&min, &max);
-m_image->EnhanceContrast(min,max);
+*m_image = m_image->Annuler();
 Refresh();
 }
 void MyPanel::AddToPileRetour(){
 m_image->AddToPileRetour();
-}
-
-void MyPanel::Number(){
-m_image->NbCouleur();
 }

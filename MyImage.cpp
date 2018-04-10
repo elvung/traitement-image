@@ -1,7 +1,9 @@
 #include "MyImage.h"
 #include <set>
 #include "MyHistogram.hpp"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
 MyImage::MyImage(const wxString& fileName)
 : wxImage(fileName)
 {
