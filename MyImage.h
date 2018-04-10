@@ -27,9 +27,8 @@ class MyImage : public wxImage{
         void permut(int i , int x);
 
     private :
-        std::stack<MyImage> pileRetour;
         std::stack<int> pileTest;
- 	std::stack<unsigned char*> pileRetour;
+        std::stack<unsigned char*> pileRetour;
 
 
         int valeur = 0;

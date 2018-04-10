@@ -82,7 +82,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     menuProcess->Append(ID_Poste, wxT("Posterize...\tCtrl-P"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Poste);
 
-	menuProcess->Append(ID_Nb, wxT("Number"));
+	menuProcess->Append(ID_Nb, wxT("Améliorer le contraste"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Nb);
 
     menuProcess->Append(ID_Annuler, wxT("Annuler...\tCtrl-Z"));
@@ -180,7 +180,7 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
                 m_panel->Posterize();
             break;
         case ID_Nb :
-                m_panel->Number();
+                m_panel->Contrast();
             break;
         case ID_Annuler :
 
