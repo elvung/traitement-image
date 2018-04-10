@@ -175,6 +175,30 @@ MyImage MyImage::rotate90(){
     return res;
 
 }
+void MyImage::rotate180(){
+
+    unsigned char* data = this->GetData();
+    int largeur = this->GetWidth();
+    int hauteur = this->GetHeight();
+    int sauv1;
+    int sauv2;
+    int sauv3;
+    int sizemax = largeur*hauteur-1;
+    for(int i =0; i<largeur*hauteur/2;i++){
+        sauv1 = data[i*3];
+        sauv2 = data[i*3+1];
+        sauv3 = data[i*3+2];
+
+        data[i*3  ] = data[sizemax*3-(i*3-2)];
+        data[i*3+1] = data[sizemax*3-(i*3-1)];
+        data[i*3+2] = data[sizemax*3-(i*3  )];
+
+        data[sizemax*3-(i*3-2)] = sauv1;
+        data[sizemax*3-(i*3-1)] = sauv2;
+        data[sizemax*3-(i*3  )] = sauv3;
+
+    }
+}
 
 void MyImage::Posterize(){
     unsigned char* data = this->GetData();

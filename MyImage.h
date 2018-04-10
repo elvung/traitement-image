@@ -19,6 +19,7 @@ class MyImage : public wxImage{
         void Threshold(int seuil);
         void MirrorHM();
         MyImage rotate90();
+        void rotate180();
         void Posterize();
         void Annuler();
         void AddToPileRetour();

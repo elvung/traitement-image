@@ -22,7 +22,8 @@ enum	// énumération. Elle gère la numérotation automatiquement
 	ID_Desa,
 	ID_Thresh,
 	ID_Poste,
-	ID_Luminosite
+	ID_Luminosite,
+	ID_Rotate180
 	//ID_Annuler
 	ID_Nb
 
@@ -68,8 +69,11 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	menuProcess->Append(ID_Blur, wxT("Blur...\tCtrl-B"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Blur);
 
-    menuProcess->Append(ID_Rotate, wxT("Rotation...\tCtrl-R"));
+    menuProcess->Append(ID_Rotate, wxT("Rotation90...\tCtrl-R"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Rotate);
+
+    menuProcess->Append(ID_Rotate180, wxT("Rotation180"));
+	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Rotate180);
 
     menuProcess->Append(ID_Nega, wxT("Negative...\tCtrl-N"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Nega);
@@ -168,6 +172,9 @@ void MyFrame::OnProcessImage(wxCommandEvent& event){
                 m_panel->AddToPileRetour();
                 m_panel->RotationImage();
             break;
+        case ID_Rotate180 :
+                m_panel->AddToPileRetour();
+                m_panel->RotationImage180();
         case ID_Nega :
                 m_panel->AddToPileRetour();
                 m_panel->Negative();
