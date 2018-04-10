@@ -34,8 +34,8 @@ void MyHistogram::GetBorderValues(int *minValue, int *maxValue){
         }
     }
     wxString myString;
-    myString << *minValue;
-    wxLogMessage(myString);
+    myString << *maxValue;
+    //wxLogMessage(myString);
 
 }
 

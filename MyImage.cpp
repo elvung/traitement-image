@@ -230,18 +230,18 @@ void MyImage::EnhanceContrast(int minValue, int maxValue){
     int d = (255 * minValue)/(minValue-maxValue);
     int f = 255/(maxValue-minValue);
 
-
-    unsigned char* data = this->GetData();
-    int transfer;
-    int taille = this->GetHeight()*this->GetWidth()*3;
-    for (int i = 0; i< taille; i++){
-            transfer = (f * data[i]) + d;
-            if (transfer < 0){
-                data[i] = 0;
-            }else if (transfer > 255){
-                data[i] = 255;
-            }else
-            data[i] = (f * data[i]) + d;
-
+    if(minValue > 0 || maxValue < 255){
+        unsigned char* data = this->GetData();
+        int transfer;
+        int taille = this->GetHeight()*this->GetWidth()*3;
+        for (int i = 0; i< taille; i++){
+                transfer = (f * data[i]) + d;
+                if (transfer < 0){
+                    data[i] = 0;
+                }else if (transfer > 255){
+                    data[i] = 255;
+                }else
+                data[i] = (f * data[i]) + d;
+        }
     }
 }
