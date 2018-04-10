@@ -66,55 +66,7 @@ void MyImage::Threshold(int seuil){
 void MyImage::MirrorHM(){
 
  unsigned char* data = this->GetData();
-   /* for(int i = 0 ;  i<((this->GetWidth()*this->GetHeight())*3)/2  ; i=i+3 ){
 
-        int sauv1 ,sauv2, sauv3;
-        sauv1 = data[i];
-        sauv2 = data[i+1];
-        sauv3 = data[i+2];
-
-        data[i]   = data[((this->GetWidth()*this->GetHeight())*3)-i-2];
-        data[i+1] = data[((this->GetWidth()*this->GetHeight())*3)-i-1];
-        data[i+2] = data[((this->GetWidth()*this->GetHeight())*3)-i];
-
-        data[((this->GetWidth()*this->GetHeight())*3)-i]   = sauv3;
-        data[((this->GetWidth()*this->GetHeight())*3)-i-1] = sauv2;
-        data[((this->GetWidth()*this->GetHeight())*3)-i-2] = sauv1;
-
-    }*/
-
-    /*
-    HORIZONTAL
-    int largeur = this->GetWidth();
-    int hauteur = this->GetHeight();
-    for(int y = 0 ; y < hauteur/2;y++){
-
-        for(int x=0;x<largeur;x++){
-
-            int i = (y*largeur+x)*3;
-            int k = ((hauteur-y-1)*largeur+x)*3;
-
-            int sauv;
-
-            sauv = data[i];
-            data[i]= data[k];
-            data[k] = sauv;
-
-            sauv = data[i+1];
-            data[i+1] = data[k+1];
-            data[k+1] = sauv ;
-
-            sauv = data[i+2];
-            data[i+2] = data[k+2];
-            data[k+2] = sauv ;
-
-
-
-
-            permut(data[i],data[k]);
-            permut(data[i+1],data[k+1]);
-            permut(data[i+2],data[k+2]);
-*/
     int largeur = this->GetWidth();
     int hauteur = this->GetHeight();
     for(int y = 0 ; y < hauteur;y++){
@@ -143,18 +95,21 @@ void MyImage::MirrorHM(){
     }
 }
 
-unsigned char* MyImage::rotate90(){
+MyImage MyImage::rotate90(){
     unsigned char* data = this->GetData();
     int largeur = this->GetWidth();
     int hauteur = this->GetHeight();
     unsigned char* resultat = (unsigned char*) malloc (hauteur*largeur*3);
+    int i,x,j;
 
-    for(int colonne = 0 ; colonne < largeur;colonne++){
+    for(int ligne = 0 ; ligne < hauteur;ligne++){
 
-        for(int ligne=0;ligne<hauteur;ligne++){
+        for(int colonne=0;colonne<largeur;colonne++){
 
-            int i = (colonne*ligne)*3;
-            int j = ((largeur-colonne)*ligne)*3;
+            i = (ligne*largeur+colonne)*3;
+            x = hauteur-1-ligne;
+            j = (colonne*hauteur+x)*3;
+
 
             resultat[j] = data[i];
             resultat[j+1] = data[i+1];
@@ -164,7 +119,9 @@ unsigned char* MyImage::rotate90(){
 
         }
     }
-    return resultat;
+    MyImage res = MyImage(hauteur,largeur);
+    res.SetData(resultat);
+    return res;
 
 }
 
@@ -187,43 +144,35 @@ void MyImage::Annuler(){
 
     MyImage* my = new MyImage(this->GetWidth(),this->GetHeight());
     *my = pileRetour.top();
-    pileRetour.pop();
+     pileRetour.pop();
 
-    std::cout<<"image dans la pile"<<std::endl;
-    std::cout<<my->GetWidth()<<std::endl;
-    std::cout<<my->GetHeight()<<std::endl;
-    std::cout<<my->GetHeight()<<std::endl;
 
     unsigned char* dataDeLimageActuelle = this->GetData();
     unsigned char* dataDuStack = my->GetData();
 
-    std::cout<<"taille de la pile"<<std::endl;
-    std::cout<<pileRetour.size()<<std::endl;
+
 
     for (int i ; i< this->GetWidth()*this->GetHeight()*3; i++ ){
-    /*if(i<100){
-            std::cout<<(int)(dataDeLimageActuelle[i]) <<" = "<< (int)(dataDuStack[i])<<std::endl;
-            std::cout<<pileTest.top()<<std::endl;
-    }*/
-            std::cout<<pileTest.top()<<std::endl;
-            pileTest.pop();
 
+        dataDeLimageActuelle[i] = 0;
         dataDeLimageActuelle[i] = dataDuStack[i];
-
-
-
-
     }
 }
 
 void MyImage::AddToPileRetour(){
     pileRetour.push(*this);
-    std::cout<<pileRetour.size()<<std::endl;
-
-    pileTest.push(valeur);
-    std::cout<<pileTest.size()<<std::endl;
-    valeur++;
-
 }
 
+void MyImage::Lumino(int quantite){
+    unsigned char* data = this->GetData();
+    for(int i = 0 ;  i<(this->GetWidth()*this->GetHeight())*3; i++ ){
+         if(data[i]+ quantite >255){
+            data[i] = 255;
+         }else if(data[i] + quantite<0){
+            data[i] = 0 ;
+         }else{
+         data[i] += quantite;
+         }
+    }
+}
 

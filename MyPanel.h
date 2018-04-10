@@ -5,6 +5,7 @@
 #endif
 #include "MyImage.h"
 #include "MyThresholdDialog.hpp"
+#include "MyLuminoDialog.h"
 
 
 class MyPanel: public wxPanel{
@@ -22,6 +23,7 @@ public:
     void Posterize();
     void Annuler();
     void AddToPileRetour();
+    void Lumino();
 
 
 

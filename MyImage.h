@@ -18,10 +18,11 @@ class MyImage : public wxImage{
         void Desaturate();
         void Threshold(int seuil);
         void MirrorHM();
-        unsigned char* rotate90();
+        MyImage rotate90();
         void Posterize();
         void Annuler();
         void AddToPileRetour();
+        void Lumino(int quantite);
 
     private :
         std::stack<MyImage> pileRetour;
