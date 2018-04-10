@@ -23,7 +23,7 @@ enum	// énumération. Elle gère la numérotation automatiquement
 	ID_Thresh,
 	ID_Poste,
 	ID_Luminosite,
-	ID_Rotate180
+	ID_Rotate180,
 	//ID_Annuler
 	ID_Nb
 
@@ -89,7 +89,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
 	menuProcess->Append(ID_Nb, wxT("Améliorer le contraste"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Nb);
-  
+
 	/*  menuProcess->Append(ID_Annuler, wxT("Annuler...\tCtrl-Z"));
 	Bind(wxEVT_MENU, &MyFrame::OnProcessImage, this, ID_Annuler);*/
 
