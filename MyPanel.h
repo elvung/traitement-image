@@ -17,6 +17,7 @@ public:
     void MiroirImage();
     void BlurImage();
     void RotationImage();
+    void RotationImage180();
     void Negative();
     void Desaturate();
     void Threshold(int seuil);

@@ -44,6 +44,11 @@ void MyPanel::RotationImage(){
 SetSize(m_image->GetWidth(),m_image->GetHeight());
 Refresh();
 }
+void MyPanel::RotationImage180(){
+
+m_image->rotate180();
+Refresh();
+}
 
 void MyPanel::Negative(){
 
